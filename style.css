@@ -1,0 +1,353 @@
+/* General page setup: AI was used to set up the colors and certain parts of the page set up*/
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --ink: #292638;               /*Background color, h1, p*/
+    --muted: #686477;             /*secondary color for text*/
+    --accent: #66558f;            /*Buttons, Borders*/
+    --accent-dark: #4c3c73;       /*Button hover*/
+    --accent-light: #eeeaf7;      /*Question numbers, select answers, and likert scale backgrounds */
+    --page: #f7f6fa;              /*Webpage background */
+    --card: #ffffff;              /*Cards */
+    --border: #dedbe7;            /*Cards borders   */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--page);
+}
+
+.site-header {
+    background: #292638;
+    color: white;
+}
+
+nav {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 16px 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #d8c8ff;
+    outline-offset: 3px;
+}
+
+.header-content {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 28px 24px 48px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: #d8ccef;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+h1 {
+    max-width: 700px;
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+}
+
+.subtitle {
+    margin-bottom: 0;
+    color: #e2deec;
+}
+
+main {
+    width: min(900px, calc(100% - 32px));
+    margin: 36px auto;
+}
+
+/*A margin of 22px for the introduction, questions:submit: cards, and  the likert sections.  */
+.intro,
+.question-card,
+.submit-card,
+.likert-section {
+    margin-bottom: 22px;
+}
+
+/*Information about the students, reason behind the project*/
+.intro {
+    padding: 8px 4px 4px;
+}
+
+.student-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.student-info strong {
+    color: var(--ink);
+}
+
+/*h2 margin top of 12px and 1.55 rem */
+h2 {
+    margin-top: 12px;
+    font-size: 1.55rem;
+}
+
+.hint,
+.field-help,
+.optional {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.hint span,
+.required {
+    color: #a33352;
+    font-weight: bold;
+}
+
+.question-card,
+.submit-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(42, 35, 65, 0.045);
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+legend,
+.text-question {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.question-number {
+    display: inline-grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 3px 0 0;
+    flex: 0 0 auto;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.likert-section {
+    padding-top: 10px;
+}
+
+.likert-section > h2 {
+    margin-bottom: 4px;
+}
+
+.scale-key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.scale-key span {
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.8rem;
+}
+
+.likert-card {
+    padding-bottom: 20px;
+}
+
+.likert-options {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.likert-options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 6px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.82rem;
+}
+
+.likert-options label:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+}
+
+.likert-options input {
+    margin: 0;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 1px solid #c9c5d4;
+    border-radius: 8px;
+    background: white;
+    color: var(--ink);
+    font: inherit;
+    resize: vertical;
+}
+
+textarea:focus,
+input:focus-visible {
+    border-color: var(--accent);
+}
+
+.submit-card {
+    text-align: center;
+}
+
+.submit-card blockquote {
+    margin: 18px 0 24px;
+    padding: 14px 18px;
+    border-left: 4px solid var(--accent);
+    background: var(--accent-light);
+    text-align: left;
+}
+
+button {
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--accent-dark);
+}
+
+.reset-button {
+    margin-left: 8px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--ink);
+}
+
+.reset-button:hover {
+    background: #f0eef5;
+}
+
+footer {
+    padding: 22px;
+    background: #292638;
+    color: #e2deec;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 650px) {
+    main {
+        width: min(100% - 22px, 900px);
+        margin: 22px auto;
+    }
+
+    .header-content {
+        padding: 24px 20px 36px;
+    }
+
+    .question-card,
+    .submit-card {
+        padding: 18px;
+    }
+
+    .likert-options {
+        grid-template-columns: 1fr;
+    }
+
+    .likert-options label {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 10px 12px;
+    }
+
+    .scale-key {
+        gap: 6px;
+    }
+
+    .scale-key span {
+        font-size: 0.75rem;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .reset-button {
+        margin-left: 0;
+    }
+}
+/*Editor's note: first draft generated with ChatGPT (GPT-5) on November 13, 2026, then edited, fact-checked, and rewritten by Fer Santos Aguilera.*/
